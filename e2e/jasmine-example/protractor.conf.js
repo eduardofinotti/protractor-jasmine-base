@@ -10,7 +10,7 @@ directConnect: true,
  	'browserName': 'chrome',
  },
  specs: ['specs/*.spec.js'],
- baseUrl: 'https://pokedex-angularjs.herokuapp.com',
+ baseUrl: 'https://google.com',
 onPrepare() {
 	jasmine.getEnv().addReporter(new SpecReporter({
    	displayFailuresSummary: true,

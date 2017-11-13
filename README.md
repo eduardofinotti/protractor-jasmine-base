@@ -1,6 +1,10 @@
 # protractor-style-guide
 Essa aplicação de Testes Automatizados servirá como Style Guide para testes e2e utilizando utilizando Protractor
 
+# To run
+protractor e2e/jasmine-example/protractor.conf.js
+
+
 ### A arquitetura está configurada da seguinte forma
 ```
 ├── README.md

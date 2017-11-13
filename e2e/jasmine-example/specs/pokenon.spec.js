@@ -2,20 +2,26 @@
 const ListagemPage = require('../../pages/listagem.po.js');
 const POKEMON = require('../../data/db.js');
 
-describe('Listagem de pokémons', ()=> {
+describe('Pesquisar no Google', ()=> {
   const listagemPage = new ListagemPage();
-  it('Deve pesquisar um pokémon de acordo com o texto pesquisado', ()=>{
+
+  it('Deve pesquisar e ver se a pesquisa foi submetida', ()=>{
     listagemPage.visit();
-    listagemPage.pesquisarPokemon('mew');
-    expect(listagemPage.resultados.count()).toEqual(2);
+    listagemPage.pesquisarPokemon('Pesquisa no Google!');
+    listagemPage.clickPesquisar();
+    expect(listagemPage.result.isPresent());
+    
   });
 });  
 
-describe('Inclusão de pokémons', ()=> {
+describe('Pesquisar por Chocolate no Google', ()=> {
   const listagemPage = new ListagemPage();
-  it('Deve incluir um pokémon', ()=>{
+
+  it('Deve pesquisar por Chocolate e ver primeiro link', ()=>{
     listagemPage.visit();
-    listagemPage.incluirPokemon(POKEMON.new_pokemon);
-    expect(listagemPage.resultados.count()).toEqual(6);
+    listagemPage.pesquisarPokemon('Chocolate');
+    listagemPage.clickPesquisar();
+    const resultado = listagemPage.getresultadoChocolate();
+    expect(resultado).not.toBe('');
   });
 });  
